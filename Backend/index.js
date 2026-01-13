@@ -1,5 +1,12 @@
 import express from "express"
 const app = express();
+import cors from "cors"
+
+
+app.use(cors({
+    origin: "http://localhost:5174"
+}))
+app.use(express.json());
 
 app.get('/getuser',(req,res)=>{
     const data = [
@@ -45,7 +52,7 @@ if(req.query.search){
 setTimeout(()=>{
     res.send(data)
 
-},3000)
+},2000)
 })
 
 
